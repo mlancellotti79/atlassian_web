@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowPro for Jira | Lancellotti Software</title>
+    <link rel="icon" type="image/svg+xml" href="flowpro-icon.svg">
+    <link rel="stylesheet" href="../../css/style.css"> <!-- Ruta relativa corregida -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-background">
+
+    <!-- HEADER (Simplificado para páginas internas) -->
+    <header class="header-internal">
+        <nav class="container-narrow flex-nav">
+            <a href="../../index.html" class="logo-group">
+                <img src="../../assets/logo.png" alt="Logo" class="logo-img">
+                <span class="font-display">Lancellotti</span>
+            </a>
+            <div class="lang-selector">
+                <button id="btn-es" class="lang-btn">ES</button>
+                <button id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="section-padding">
+        <div class="container-narrow">
+            <!-- Botón Volver -->
+            <a href="../../index.html#products" class="btn-ghost">
+                <i data-lucide="arrow-left"></i>
+                <span data-i18n="back">Back to Home</span>
+            </a>
+
+            <!-- Encabezado de Producto -->
+            <div class="product-hero-flex mb-12">
+                <div id="product-icon-box" class="product-icon-lg flex items-center justify-center bg-white rounded-xl shadow-sm border border-gray-100 p-2">
+                    <!-- Eliminamos el ID 'main-icon' para que el script no lo toque -->
+                    <img 
+                        id="product-logo-img" 
+                        src="flowpro-icon.svg" 
+                        alt="FlowPro Logo" 
+                        class="w-full h-full object-contain p-2"
+                    />
+                </div>
+                <div>
+                    <h1 id="product-name" class="text-4xl font-bold mb-2 text-slate-800"></h1>
+                    <p id="product-tagline" class="text-xl text-slate-500"></p>
+                </div>
+            </div>
+
+            <!-- Carrusel de Imágenes -->
+            <div class="carousel-section mb-20">
+                <h2 class="text-2xl font-bold mb-8 text-center" data-i18n="product.screenshots">Capturas de Pantalla</h2>
+                
+                <div class="carousel-wrapper group">
+                    <div id="carousel-track" class="carousel-track">
+                        <!-- Imagen 1 -->
+                        <div class="carousel-item">
+                            <img src="images/FlowPro/shot1_workflow.webp" alt="Directory">
+                            <p class="text-center mt-4 text-sm text-slate-500 font-medium" data-i18n="product.flowpro.shot1"></p>
+                        </div>
+                        <!-- Imagen 2 -->
+                        <div class="carousel-item">
+                            <img src="images/FlowPro/shot2_newTask.webp" alt="New Task">
+                            <p class="text-center mt-4 text-sm text-slate-500 font-medium" data-i18n="product.flowpro.shot2"></p>
+                        </div>
+                        <!-- Imagen 3 -->
+                        <div class="carousel-item">
+                            <img src="images/FlowPro/shot3_saveTemplates.webp" alt="Templates">
+                            <p class="text-center mt-4 text-sm text-slate-500 font-medium" data-i18n="product.flowpro.shot3"></p>
+                        </div>
+                        <!-- Imagen 4 -->
+                        <div class="carousel-item">
+                            <img src="images/FlowPro/shot4_currentTemplates.webp" alt="Menu">
+                            <p class="text-center mt-4 text-sm text-slate-500 font-medium" data-i18n="product.flowpro.shot4"></p>
+                        </div>
+                        <!-- Imagen 5 -->
+                        <div class="carousel-item">
+                            <img src="images/FlowPro/shot5_auditTrail.webp" alt="Sync">
+                            <p class="text-center mt-4 text-sm text-slate-500 font-medium" data-i18n="product.flowpro.shot5"></p>
+                        </div>
+                    </div>
+
+                    <!-- BOTONES DE NAVEGACIÓN (Agregados) -->
+                    <button onclick="scrollCarousel(-1)" class="carousel-btn prev" aria-label="Previous">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button onclick="scrollCarousel(1)" class="carousel-btn next" aria-label="Next">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 1. BLOQUE DE DESCRIPCIÓN (EL GANCHO) -->
+            <div class="card-description mb-12">
+                <h2 class="text-xl font-bold mb-4" data-i18n="product.description">Descripción</h2>
+                <p id="product-detail" class="text-description mb-6"></p>
+                <p id="product-extended" class="text-description"></p>
+            </div>
+
+            <!-- 2. SECCIÓN DE CARACTERÍSTICAS (EL CÓMO) -->
+            <section class="features-section mb-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800" data-i18n="product.flowpro.feat.title">Impulsando tu flujo de trabajo</h2>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <!-- Grilla de 3 Columnas -->
+                <div class="feature-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon-box bg-blue-light text-blue-main">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <h3 data-i18n="product.flowpro.feat1.title">Cascading Logic</h3>
+                        <p data-i18n="product.flowpro.feat1.desc">Tasks remain locked until dependencies are met. Perfect for strict compliance release cycles.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon-box bg-emerald-light text-emerald-main">
+                            <i data-lucide="list-checks"></i>
+                        </div>
+                        <h3 data-i18n="product.flowpro.feat2.title">Smart Sections</h3>
+                        <p data-i18n="product.flowpro.feat2.desc">Group tasks into milestones. Headers automatically update status based on sub-task progress.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon-box bg-amber-light text-amber-main">
+                            <i data-lucide="bell-ring"></i>
+                        </div>
+                        <h3 data-i18n="product.flowpro.feat3.title">Team Nudges</h3>
+                        <p data-i18n="product.flowpro.feat3.desc">Notify entire teams with one click. Jira automatically @mentions assignees through comments.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Website -->
+            <div id="cta-container" class="mb-12">
+                <!-- Se inserta por JS si existe URL -->
+            </div>
+
+            <!-- Links Legales Específicos -->
+            <div class="legal-footer-links pt-8 border-t">
+                <a href="#" id="link-terms" class="legal-link">
+                    <i data-lucide="file-text"></i>
+                    <span data-i18n="footer.terms"></span>
+                </a>
+                <a href="#" id="link-privacy" class="legal-link">
+                    <i data-lucide="shield"></i>
+                    <span data-i18n="footer.privacy"></span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-simple">
+        <p data-i18n="footer.rights"></p>
+    </footer>
+
+    <script type="module">
+        import { translations } from '../../js/translations.js';
+        
+        const productId = 'flowpro'; 
+
+        window.changeLang = (lang) => {
+            localStorage.setItem('preferredLang', lang);
+            const t = translations[lang];
+            if (!t) return;
+
+            // Traducir todo lo que tenga data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+
+            // Contenido dinámico
+            document.getElementById('product-name').innerText = t[`product.${productId}.name`] || "TrueNorth";
+            document.getElementById('product-tagline').innerText = t[`product.${productId}.tagline`] || "";
+            document.getElementById('product-detail').innerText = t[`product.${productId}.detail`] || "";
+            document.getElementById('product-extended').innerText = t[`product.${productId}.extended`] || "";
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.id === `btn-${lang}`);
+            });
+            
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seteamos links legales
+            document.getElementById('link-terms').href = `${productId}-terms.html`;
+            document.getElementById('link-privacy').href = `${productId}-privacy.html`;
+
+            const currentLang = localStorage.getItem('preferredLang') || 'es';
+            window.changeLang(currentLang);
+
+            document.getElementById('btn-es').addEventListener('click', () => window.changeLang('es'));
+            document.getElementById('btn-en').addEventListener('click', () => window.changeLang('en'));
+        });
+
+        // Función de Scroll corregida
+        window.scrollCarousel = (direction) => {
+            const track = document.getElementById('carousel-track');
+            const items = track.querySelectorAll('.carousel-item');
+            
+            // Encontramos el índice del item que está actualmente más cerca del centro
+            const currentScroll = track.scrollLeft;
+            const itemWidth = items[0].offsetWidth + 24; // ancho + gap
+            
+            // Calculamos el próximo punto de snap
+            const targetScroll = currentScroll + (direction * itemWidth);
+            
+            track.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
+            });
+        };
+    </script>
+</body>
+</html>

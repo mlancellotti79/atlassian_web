@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - TrueNorth | Lancellotti Software</title>
+    <link rel="icon" type="image/svg+xml" href="truenorth-icon.svg">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-background">
+    <header class="header-internal">
+        <nav class="container-narrow flex-nav">
+            <a href="../../index.html" class="logo-group">
+                <img src="../../assets/logo.png" alt="Logo" class="logo-img">
+                <span class="font-display">Lancellotti</span>
+            </a>
+            <div class="lang-selector">
+                <button id="btn-es" class="lang-btn">ES</button>
+                <button id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="section-padding">
+        <div class="container-narrow max-w-3xl">
+            <a href="truenorth.html" class="btn-ghost">
+                <i data-lucide="arrow-left"></i>
+                <span data-i18n="product.backToProduct">Back</span>
+            </a>
+
+            <h1 class="text-4xl font-bold mt-8 mb-2" data-i18n="truenorth.terms.title"></h1>
+            <p class="text-muted mb-10" data-i18n="truenorth.terms.updated"></p>
+
+            <div class="space-y-8">
+                <section>
+                    <h2 class="text-xl font-bold mb-3" data-i18n="truenorth.terms.s1.t"></h2>
+                    <p class="text-muted leading-relaxed" data-i18n="truenorth.terms.s1.c"></p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold mb-3" data-i18n="truenorth.terms.s2.t"></h2>
+                    <p class="text-muted leading-relaxed" data-i18n="truenorth.terms.s2.c"></p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold mb-3" data-i18n="truenorth.terms.s3.t"></h2>
+                    <p class="text-muted leading-relaxed" data-i18n="truenorth.terms.s3.c"></p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold mb-3" data-i18n="truenorth.terms.s4.t"></h2>
+                    <p class="text-muted leading-relaxed" data-i18n="truenorth.terms.s4.c"></p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold mb-3" data-i18n="truenorth.terms.s5.t"></h2>
+                    <p class="text-muted leading-relaxed" data-i18n="truenorth.terms.s5.c"></p>
+                </section>
+                <section>
+                    <h2 class="text-xl font-bold mb-3" data-i18n="truenorth.terms.s6.t"></h2>
+                    <p class="text-muted leading-relaxed" data-i18n="truenorth.terms.s6.c"></p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { translations } from '../../js/translations.js';
+        window.changeLang = (lang) => {
+            localStorage.setItem('preferredLang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.id === `btn-${lang}`));
+            lucide.createIcons();
+        };
+        document.addEventListener('DOMContentLoaded', () => {
+            window.changeLang(localStorage.getItem('preferredLang') || 'es');
+            document.getElementById('btn-es').addEventListener('click', () => window.changeLang('es'));
+            document.getElementById('btn-en').addEventListener('click', () => window.changeLang('en'));
+        });
+    </script>
+</body>
+</html>

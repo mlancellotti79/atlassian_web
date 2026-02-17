@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto | Lancellotti Software</title>
+    <link rel="stylesheet" href="../../css/style.css"> <!-- Ruta relativa corregida -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-background">
+
+    <!-- HEADER (Simplificado para páginas internas) -->
+    <header class="header-internal">
+        <nav class="container-narrow flex-nav">
+            <a href="../../index.html" class="logo-group">
+                <img src="../../assets/logo.png" alt="Logo" class="logo-img">
+                <span class="font-display">Lancellotti</span>
+            </a>
+            <div class="lang-selector">
+                <button id="btn-es" class="lang-btn">ES</button>
+                <button id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="section-padding">
+        <div class="container-narrow">
+            <!-- Botón Volver -->
+            <a href="../../index.html#products" class="btn-ghost">
+                <i data-lucide="arrow-left"></i>
+                <span data-i18n="back">Back to Home</span>
+            </a>
+
+            <!-- Encabezado de Producto -->
+            <div class="product-hero-flex mb-12">
+                <div id="product-icon-box" class="product-icon-lg">
+                    <i id="main-icon" data-lucide="box"></i> <!-- Se cambia por JS -->
+                </div>
+                <div>
+                    <h1 id="product-name" class="text-4xl font-bold mb-2"></h1>
+                    <p id="product-tagline" class="text-xl text-muted"></p>
+                </div>
+            </div>
+
+            <!-- Carrusel de Imágenes (Simplificado de ImageCarousel.tsx) -->
+            <div class="carousel-container mb-12">
+                <h2 class="text-xl font-bold mb-6" data-i18n="product.screenshots">Capturas de Pantalla</h2>
+                <div class="carousel-main">
+                    <div id="empty-carousel" class="carousel-empty hidden">
+                        <i data-lucide="image"></i>
+                        <p data-i18n="product.screenshotsComingSoon"></p>
+                    </div>
+                    <!-- Aquí podrías insertar <img> manualmente si ya tienes capturas -->
+                </div>
+            </div>
+
+            <!-- Descripción Detallada -->
+            <div class="card-description mb-12">
+                <h2 class="text-xl font-bold mb-4" data-i18n="product.description">Descripción</h2>
+                <p id="product-detail" class="text-description mb-6"></p>
+                <p id="product-extended" class="text-description"></p>
+            </div>
+
+            <!-- CTA Website -->
+            <div id="cta-container" class="mb-12">
+                <!-- Se inserta por JS si existe URL -->
+            </div>
+
+            <!-- Links Legales Específicos -->
+            <div class="legal-footer-links pt-8 border-t">
+                <a href="#" id="link-terms" class="legal-link">
+                    <i data-lucide="file-text"></i>
+                    <span data-i18n="footer.terms"></span>
+                </a>
+                <a href="#" id="link-privacy" class="legal-link">
+                    <i data-lucide="shield"></i>
+                    <span data-i18n="footer.privacy"></span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-simple">
+        <p data-i18n="footer.rights"></p>
+    </footer>
+
+    <script type="module">
+        import { translations } from '../../js/translations.js';
+        
+        // CONFIGURACIÓN DEL PRODUCTO (Ajusta según la página)
+        // Cambia esto en cada archivo: 'balneario', 'truenorth' o 'flowpro'
+        const productId = 'balneario'; 
+        const iconName = 'umbrella'; // umbrella, map, check-square
+        const productColor = 'grad-blue'; // grad-blue, grad-primary, grad-accent
+        const websiteUrl = 'https://balneario.app'; // o null si no tiene
+
+        window.changeLang = (lang) => {
+            localStorage.setItem('preferredLang', lang);
+            const t = translations[lang];
+            
+            // 1. Traducir elementos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+
+            // 2. Traducir contenido dinámico
+            document.getElementById('product-name').innerText = t[`product.${productId}.name`];
+            document.getElementById('product-tagline').innerText = t[`product.${productId}.tagline`];
+            document.getElementById('product-detail').innerText = t[`product.${productId}.detail`];
+            document.getElementById('product-extended').innerText = t[`product.${productId}.extended`];
+
+            // 3. ACTUALIZAR ESTADO DE BOTONES (Esto resuelve tu punto 2)
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.id === `btn-${lang}`);
+            });
+            
+            // 4. RE-INICIALIZAR ICONOS (Esto resuelve tu punto 1)
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preparar UI del producto
+            const iconBox = document.getElementById('product-icon-box');
+            const mainIcon = document.getElementById('main-icon');
+            
+            iconBox.classList.add(productColor);
+            mainIcon.setAttribute('data-lucide', iconName);
+            
+            document.getElementById('link-terms').href = `${productId}-terms.html`;
+            document.getElementById('link-privacy').href = `${productId}-privacy.html`;
+
+            // Ejecutar traducción inicial
+            const currentLang = localStorage.getItem('preferredLang') || 'es';
+            window.changeLang(currentLang);
+
+            // ASIGNAR EVENTOS A BOTONES (Para que funcionen los clics)
+            document.getElementById('btn-es').addEventListener('click', () => window.changeLang('es'));
+            document.getElementById('btn-en').addEventListener('click', () => window.changeLang('en'));
+        });
+    </script>
+</body>
+</html>
