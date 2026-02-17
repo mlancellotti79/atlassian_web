@@ -42,6 +42,18 @@ export const translations = {
     'product.truenorth.shot4': "Sincronización bidireccional en tiempo real",
     'product.truenorth.shot5': "Arrastrar y soltar para organizar fácilmente",
     
+    "product.truenorth.guide.title": "Guía de Inicio Rápido y Testing",
+    "product.truenorth.guide.subtitle": "Sigue estos pasos para verificar las funcionalidades principales de TrueNorth:",
+    "product.truenorth.guide.step1": "<strong>Accede a la App:</strong> Abre cualquier proyecto de Jira Software. Haz clic en TrueNorth en la barra lateral izquierda.",
+    "product.truenorth.guide.step2": "<strong>Crea tu primer Mapa:</strong> Haz clic en 'Create New Map'. Dale un nombre y entra al directorio.",
+    "product.truenorth.guide.step3": "<strong>Define la Estrategia (Goals):</strong> Haz clic en 'Add Goal' en el encabezado. Crea un objetivo estratégico (ej: 'Fase 1: Lanzamiento').",
+    "product.truenorth.guide.step4": "<strong>Construye la Estructura (Activities):</strong> Haz clic en 'Add Activity'. Asígnale un nombre y conéctala con el Goal creado anteriormente.",
+    "product.truenorth.guide.step5": "<strong>Crea Historias de Usuario:</strong> Haz clic en 'Add Card'. Estas son borradores (borde naranja) que solo existen en TrueNorth por ahora.",
+    "product.truenorth.guide.step6": "<strong>Integración con Jira (El Ancla):</strong> Haz clic en 'Link Existing Epic' y selecciona una Epic real de tu proyecto de Jira.",
+    "product.truenorth.guide.step7": "<strong>Lanzamiento a Jira:</strong> En el menú de una tarjeta borrador (tres puntos), selecciona 'Launch to Jira'. TrueNorth creará la Story real vinculada a tu Epic.",
+    "product.truenorth.guide.step8": "<strong>Sincronización Bidireccional:</strong> Cambia el estado de esa Story en Jira a 'Done'. Vuelve a TrueNorth, pulsa 'Sync Jira' y verás el progreso actualizado al instante.",
+    "product.truenorth.guide.step9": "<strong>Organización:</strong> Usa Drag & Drop para mover tarjetas entre versiones (swimlanes) o reordenar actividades.",
+
     // FlowPro
     'product.flowpro.name': 'FlowPro for Jira',
     'product.flowpro.tagline': 'Estandariza el éxito. Automatiza el progreso.',
@@ -237,6 +249,18 @@ export const translations = {
     "product.truenorth.shot4": "Real-time bi-directional synchronization",
     "product.truenorth.shot5": "Drag and drop for easy organization",
     
+    "product.truenorth.guide.title": "Quick Start & Testing Guide",
+    "product.truenorth.guide.subtitle": "Follow these steps to verify TrueNorth's core functionality:",
+    "product.truenorth.guide.step1": "<strong>Access the App:</strong> Open any Jira Software project. Click on TrueNorth in the left-hand project sidebar.",
+    "product.truenorth.guide.step2": "<strong>Create your first Map:</strong> Click the 'Create New Map' button. Give it a name and enter the directory.",
+    "product.truenorth.guide.step3": "<strong>Define Strategy (Goals):</strong> Click 'Add Goal' in the top header. Create a strategic goal (e.g., 'Phase 1: Launch').",
+    "product.truenorth.guide.step4": "<strong>Build the Backbone (Activities):</strong> Click 'Add Activity'. Give it a title and assign it to the Goal created in the previous step.",
+    "product.truenorth.guide.step5": "<strong>Create User Stories (Cards):</strong> Click 'Add Card' inside any cell. These are 'Drafts' (orange border) and only exist within TrueNorth for now.",
+    "product.truenorth.guide.step6": "<strong>Jira Integration (The Anchor):</strong> Click 'Link Existing Epic' in the header and select an Epic from your project.",
+    "product.truenorth.guide.step7": "<strong>Launch to Jira:</strong> Open the menu (three dots) on any draft card and select 'Launch to Jira'. TrueNorth will create a real Jira Story linked to your Anchor Epic.",
+    "product.truenorth.guide.step8": "<strong>Bi-directional Sync:</strong> Manually change the status of that new Story in Jira to 'Done'. Go back to TrueNorth and click 'Sync Jira'. Status will update instantly.",
+    "product.truenorth.guide.step9": "<strong>Organization:</strong> Use Drag & Drop to move cards between releases (swimlanes) or reorder activities.",
+
     // FlowPro
     'product.flowpro.name': 'FlowPro for Jira',
     'product.flowpro.tagline': 'Enforce your standards. Automate your workflow.',

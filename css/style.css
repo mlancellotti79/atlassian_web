@@ -748,3 +748,64 @@ svg.lucide {
     margin: 1rem auto 0;
     border-radius: 2px;
 }
+
+/* QUICK START GUIDE STYLES */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.step-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border));
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-3px);
+    border-color: hsl(var(--primary));
+}
+
+.step-number {
+    background: hsl(var(--primary));
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.step-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: hsl(var(--muted-foreground));
+}
+
+.step-card strong {
+    color: hsl(var(--foreground));
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+/* Ajuste para que se vea bien en móviles */
+@media (max-width: 640px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+[id] {
+    scroll-margin-top: 100px; 
+}
